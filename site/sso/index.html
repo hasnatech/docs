@@ -9,15 +9,17 @@
       
       
       
-        <link rel="prev" href="../sso/">
+        <link rel="prev" href="../accordion/">
       
+      
+        <link rel="next" href="../reference_sites/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Reference site - Development Docs</title>
+        <title>SSO Implementation - Development Docs</title>
       
     
     
@@ -65,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-site" class="md-skip">
+        <a href="#sso-implementation" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference site
+              SSO Implementation
             
           </span>
         </div>
@@ -242,21 +244,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../sso/" class="md-nav__link">
-        SSO Implementation
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -269,12 +256,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Reference site
+          SSO Implementation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Reference site
+        SSO Implementation
       </a>
       
         
@@ -293,29 +280,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#angular" class="md-nav__link">
-    Angular
+  <a href="#install-npm" class="md-nav__link">
+    Install npm
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bootstrap" class="md-nav__link">
-    Bootstrap
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gsap" class="md-nav__link">
-    GSAP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-map" class="md-nav__link">
-    Image map
+  <a href="#place-in-service-or-app-component-and-call-init" class="md-nav__link">
+    Place in service or app component and call init()
   </a>
   
 </li>
@@ -324,6 +297,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference_sites/" class="md-nav__link">
+        Reference site
+      </a>
     </li>
   
 
@@ -355,29 +343,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#angular" class="md-nav__link">
-    Angular
+  <a href="#install-npm" class="md-nav__link">
+    Install npm
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bootstrap" class="md-nav__link">
-    Bootstrap
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gsap" class="md-nav__link">
-    GSAP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-map" class="md-nav__link">
-    Image map
+  <a href="#place-in-service-or-app-component-and-call-init" class="md-nav__link">
+    Place in service or app component and call init()
   </a>
   
 </li>
@@ -398,15 +372,35 @@
 
 
 
-<h1 id="reference-site">Reference site</h1>
-<h2 id="angular">Angular</h2>
-<p><a href="https://angular.io/">https://angular.io/</a></p>
-<h2 id="bootstrap">Bootstrap</h2>
-<p><a href="https://getbootstrap.com/">https://getbootstrap.com/</a></p>
-<h2 id="gsap">GSAP</h2>
-<p><a href="https://greensock.com/docs/v3/GSAP/Timeline">GSAP</a></p>
-<h2 id="image-map">Image map</h2>
-<p><a href="https://imagemap.org/">https://imagemap.org/</a></p>
+<h1 id="sso-implementation">SSO Implementation</h1>
+<h2 id="install-npm">Install npm</h2>
+<pre><code>npm install ht_record
+or
+import { Record } from "../../../../DLSE/src/app/service/Record";
+</code></pre>
+<h2 id="place-in-service-or-app-component-and-call-init">Place in service or app component and call init()</h2>
+<pre><code>record: any;
+record_init() {
+    this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);
+    let user = this.record.init({
+    title: document.title,
+    url: location.origin,
+    // debug: true 
+    });
+    user.then((data: any) =&gt; {
+    console.log(data);
+    this.user.name = data.name;
+    this.user.email = data.email;
+    if (location.origin.indexOf('localhost') == -1)
+        this.record_send_status('page_log', 'ACCESSED')
+    })
+}
+
+record_send_status(key: string, val: string) {
+    if (this.user.name != "" &amp;&amp; this.user.email != "")
+    this.record.send(this.user.name, this.user.email, key, val);
+}
+</code></pre>
 
 
 
