@@ -398,14 +398,13 @@ or
 import { Record } from "../../../../DLSE/src/app/service/Record";
 </code></pre>
 <h2 id="place-in-service-or-app-component-and-call-init">Place in service or app component and call init()</h2>
-<pre><code>user = {
-    name: '',
-    email: ''
-}
-
-_____________________________
-
-record: any;
+<p>``` <br />
+    user = {
+        name: '',
+        email: ''
+    }</p>
+<pre><code></code></pre>
+<pre><code>record: any;
 record_init() {
     this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);
     let user = this.record.init({
@@ -427,6 +426,7 @@ record_send_status(key: string, val: string) {
     this.record.send(this.user.name, this.user.email, key, val);
 }
 </code></pre>
+<p>```</p>
 
 
 

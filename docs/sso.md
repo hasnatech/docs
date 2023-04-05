@@ -10,14 +10,13 @@
     import { Record } from "../../../../DLSE/src/app/service/Record";
 
 ## Place in service or app component and call init()
-    
+ ```   
     user = {
         name: '',
         email: ''
     }
-
-    _____________________________
-    
+```
+```
     record: any;
     record_init() {
         this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);
@@ -39,3 +38,4 @@
         if (this.user.name != "" && this.user.email != "")
         this.record.send(this.user.name, this.user.email, key, val);
     }
+```
