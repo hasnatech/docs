@@ -19,7 +19,7 @@
     
     
       
-        <title>SSO Implementation - Development Docs</title>
+        <title>Adobe Analytics & SSO Implementation - Development Docs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sso-implementation" class="md-skip">
+        <a href="#adobe-analytics-sso-implementation" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SSO Implementation
+              Adobe Analytics & SSO Implementation
             
           </span>
         </div>
@@ -256,12 +256,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          SSO Implementation
+          Adobe Analytics & SSO Implementation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SSO Implementation
+        Adobe Analytics & SSO Implementation
       </a>
       
         
@@ -278,6 +278,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adobe-analytics" class="md-nav__link">
+    Adobe Analytics
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#install-npm" class="md-nav__link">
@@ -343,6 +350,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#adobe-analytics" class="md-nav__link">
+    Adobe Analytics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-npm" class="md-nav__link">
     Install npm
   </a>
@@ -372,7 +386,12 @@
 
 
 
-<h1 id="sso-implementation">SSO Implementation</h1>
+<h1 id="adobe-analytics-sso-implementation">Adobe Analytics &amp; SSO Implementation</h1>
+<h2 id="adobe-analytics">Adobe Analytics</h2>
+<pre><code>const script1 = document.createElement('script');
+script1.src = '//assets.adobedtm.com/47e3e446470b/b72afcffdbd7/launch-a14b516e7cd5.min.js';
+document.head.appendChild(script1);
+</code></pre>
 <h2 id="install-npm">Install npm</h2>
 <pre><code>npm install ht_record
 or
