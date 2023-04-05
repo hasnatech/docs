@@ -11,6 +11,13 @@
 
 ## Place in service or app component and call init()
     
+    user = {
+        name: '',
+        email: ''
+    }
+
+    _____________________________
+    
     record: any;
     record_init() {
         this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);

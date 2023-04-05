@@ -398,7 +398,14 @@ or
 import { Record } from "../../../../DLSE/src/app/service/Record";
 </code></pre>
 <h2 id="place-in-service-or-app-component-and-call-init">Place in service or app component and call init()</h2>
-<pre><code>record: any;
+<pre><code>user = {
+    name: '',
+    email: ''
+}
+
+_____________________________
+
+record: any;
 record_init() {
     this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);
     let user = this.record.init({
