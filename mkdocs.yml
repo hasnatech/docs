@@ -6,6 +6,7 @@ nav:
     - 'index.md'
     - 'variable_scss.md'
     - 'translation-plugin.md'
+    - 'hoverover.md'
     - 'accordion.md'
     - 'sso.md'
     - 'reference_sites.md'
