@@ -1,5 +1,5 @@
 ## HoverOver
-![Image title](images/hover.png){ align=left }
+![Image title](images/hover.png)
 ### TS file
     tiles = [
         {
