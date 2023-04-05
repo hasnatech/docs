@@ -398,35 +398,33 @@ or
 import { Record } from "../../../../DLSE/src/app/service/Record";
 </code></pre>
 <h2 id="place-in-service-or-app-component-and-call-init">Place in service or app component and call init()</h2>
-<p>``` <br />
-    user = {
+<pre><code>    user = {
         name: '',
         email: ''
-    }</p>
-<pre><code></code></pre>
-<pre><code>record: any;
-record_init() {
-    this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);
-    let user = this.record.init({
-    title: document.title,
-    url: location.origin,
-    // debug: true 
-    });
-    user.then((data: any) =&gt; {
-    console.log(data);
-    this.user.name = data.name;
-    this.user.email = data.email;
-    if (location.origin.indexOf('localhost') == -1)
-        this.record_send_status('page_log', 'ACCESSED')
-    })
-}
-
-record_send_status(key: string, val: string) {
-    if (this.user.name != "" &amp;&amp; this.user.email != "")
-    this.record.send(this.user.name, this.user.email, key, val);
-}
+    }
 </code></pre>
-<p>```</p>
+<pre><code>    record: any;
+    record_init() {
+        this.record = new Record(environment.url.apiUrl, environment.url.assetsPortal, environment.url.token);
+        let user = this.record.init({
+        title: document.title,
+        url: location.origin,
+        // debug: true 
+        });
+        user.then((data: any) =&gt; {
+        console.log(data);
+        this.user.name = data.name;
+        this.user.email = data.email;
+        if (location.origin.indexOf('localhost') == -1)
+            this.record_send_status('page_log', 'ACCESSED')
+        })
+    }
+
+    record_send_status(key: string, val: string) {
+        if (this.user.name != &quot;&quot; &amp;&amp; this.user.email != &quot;&quot;)
+        this.record.send(this.user.name, this.user.email, key, val);
+    }
+</code></pre>
 
 
 

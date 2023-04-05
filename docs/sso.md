@@ -10,7 +10,7 @@
     import { Record } from "../../../../DLSE/src/app/service/Record";
 
 ## Place in service or app component and call init()
- ```   
+```   
     user = {
         name: '',
         email: ''
